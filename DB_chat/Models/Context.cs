@@ -12,6 +12,7 @@ namespace DB_chat.Models
     // "Host=localHost;Username=postgres;Password=example;Database=chatv1"
     public class Context : DbContext
     {
+        // своеобразные коллекции-таблицы
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public Context() { }
@@ -32,8 +33,8 @@ namespace DB_chat.Models
                 // Процесс нименования полей
                 entity.Property(x => x.Id).HasColumnName("Id");
                 entity.Property(x => x.Text).HasColumnName("Text");
-                entity.Property(x => x.FromUser).HasColumnName("FromUser");
-                entity.Property(x => x.ToUser).HasColumnName("ToUser");
+                entity.Property(x => x.FromUserId).HasColumnName("MessageFromUser");
+                entity.Property(x => x.ToUserId).HasColumnName("MessageToUser");
 
                 // создание свзяи многие ко многим 
                 entity.HasOne(d => d.FromUser).
@@ -60,6 +61,8 @@ namespace DB_chat.Models
             });
 
             base.OnModelCreating(modelBuilder);
+            // dotnet tool install --global dotnet-ef :: что и зачем
+            //Создает код для DbContext типов сущностей для базы данных.
         }
     }
 }

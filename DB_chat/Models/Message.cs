@@ -15,6 +15,7 @@ namespace DB_chat.Models
         public int? ToUserId { get; set; }
         public int? FromUserId { get; set; }
 
+        // эти поля используются для связи "один ко многим"
         public virtual User? ToUser { get; set; }
         public virtual User? FromUser { get; set; }
     }
