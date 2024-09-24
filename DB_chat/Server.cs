@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DB_chat
 {
-    class Server
+    public class Server
     {
         // словарь для хранения адресов клиентов по их именам
         Dictionary<string, IPEndPoint> clients = new Dictionary<string, IPEndPoint>();

@@ -18,7 +18,8 @@ namespace DB_chat
     {
         public Command Command { get; set; }
         public int? Id { get; set; }
-        public string FromName { get; set; }
+        public string Name { get; set; }
+        public string? FromName { get; set; }
         public string ToName { get; set; }
         public string Text { get; set; }
 
